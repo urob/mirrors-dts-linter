@@ -2,16 +2,12 @@
   name: DTS Format
   description: Auto-format DeviceTree source files
   language: node
-  entry: dts-linter --formatFixAll
-  args: [--file]
+  entry: dts-linter-hook --formatFixAll
   files: '\.(dts|dtsi|overlay|keymap)$'
-  additional_dependencies: ['dts-linter@0.5.0']
 
 - id: dts-lint
   name: DTS Lint
   description: Lint DeviceTree source files
   language: node
-  entry: dts-linter
-  args: [--file]
+  entry: dts-linter-hook
   files: '\.(dts|dtsi|overlay|keymap)$'
-  additional_dependencies: ['dts-linter@0.5.0']

@@ -15,8 +15,7 @@ repos:
       - id: dts-format # Run the formatter.
 ```
 
-To configure the linter or formatter, pass the relevant dts-linter arguments through `args`, and
-append them with `--file`. For example, to use two spaces for indenting, use:
+To configure the linter or formatter, pass the relevant dts-linter arguments through `args`. For example, to use two spaces for indenting, use:
 
 ```yaml
 repos:
