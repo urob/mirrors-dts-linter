@@ -1,0 +1,34 @@
+name: main
+
+on:
+  schedule:
+    - cron: '23 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: true # needed to push commits below
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+
+      - name: Mirror dts-linter
+        run: uv run --no-project mirror.py
+
+      - name: Push changes
+        run: |
+          if git log origin/main..HEAD --oneline | grep -q .; then
+            git push --follow-tags
+          fi
