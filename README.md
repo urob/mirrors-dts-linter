@@ -24,6 +24,6 @@ repos:
     hooks:
       - id: dts-lint   # Run the linter.
       - id: dts-format # Run the formatter.
-        args: [ --insertSpaces, --tabSize=2, --file ]
+        args: [ --insertSpaces, --tabSize=2 ]
 ```
 
