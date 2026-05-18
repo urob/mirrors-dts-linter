@@ -5,9 +5,6 @@
   "bin": {
     "dts-linter-hook": "bin/dts-linter-hook.js"
   },
-  "scripts": {
-    "prepare": "node bin/link.js"
-  },
   "dependencies": {
     "dts-linter": "0.5.0"
   }
