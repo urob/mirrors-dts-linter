@@ -2,7 +2,7 @@
   name: DTS Format
   description: Auto-format DeviceTree source files
   language: node
-  entry: dts-linter-hook --formatFixAll
+  entry: dts-linter-hook --quiet --formatFixAll
   files: '\.(dts|dtsi|overlay|keymap)$'
 
 - id: dts-lint

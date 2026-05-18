@@ -8,7 +8,8 @@ const binRelPath = typeof pkg.bin === 'string' ? pkg.bin : pkg.bin['dts-linter']
 const dtsLinter = join(dirname(require.resolve('dts-linter/package.json')), binRelPath);
 
 const argv = process.argv.slice(2);
-const flags = argv.filter(a => a.startsWith('-'));
+const quiet = argv.includes('--quiet');
+const flags = argv.filter(a => a.startsWith('-') && a !== '--quiet');
 const files = argv.filter(a => !a.startsWith('-'));
 
 if (!files.length) process.exit(0);
@@ -16,7 +17,7 @@ if (!files.length) process.exit(0);
 const result = spawnSync(
   dtsLinter,
   [...flags, ...files.flatMap(f => ['--file', f])],
-  { stdio: ['inherit', 'ignore', 'inherit'] },
+  { stdio: ['inherit', quiet ? 'ignore' : 'inherit', 'inherit'] },
 );
 if (result.error) {
   process.stderr.write(`dts-linter-hook: ${result.error.message}\n`);
