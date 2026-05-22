@@ -9,7 +9,7 @@ Add the following to your `.pre-commit-config.yaml`:
 ```yaml
 repos:
   - repo: https://github.com/urob/mirrors-dts-linter
-    rev: v0.5.0        # Use the sha/tag you want to point at.
+    rev: v0.5.1        # Use the sha/tag you want to point at.
     hooks:
       - id: dts-lint   # Run the linter.
       - id: dts-format # Run the formatter.
@@ -20,7 +20,7 @@ To configure the linter or formatter, pass the relevant dts-linter arguments thr
 ```yaml
 repos:
   - repo: https://github.com/urob/mirrors-dts-linter
-    rev: v0.5.0        # Use the sha/tag you want to point at.
+    rev: v0.5.1        # Use the sha/tag you want to point at.
     hooks:
       - id: dts-lint   # Run the linter.
       - id: dts-format # Run the formatter.
