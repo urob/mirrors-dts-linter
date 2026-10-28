@@ -1,11 +1,11 @@
 {
   "name": "mirrors-dts-linter",
   "description": "Pre-commit hooks for dts-linter",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "bin": {
     "dts-linter-hook": "bin/dts-linter-hook.js"
   },
   "dependencies": {
-    "dts-linter": "0.5.2"
+    "dts-linter": "0.5.3"
   }
 }
